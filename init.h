@@ -1,14 +1,13 @@
 #ifndef INIT_H
 #define INIT_H
 
-// Function prototypes for system initialization
+// システム初期化関数のプロトタイプ宣言
 
 /**
- * @brief Initializes the system clock and other core subsystems.
+ * @brief システムクロックおよびその他のコアサブシステムを初期化します。
  * 
- * This function sets up the system clock and any other fundamental
- * hardware features that are required for the application to run.
- * It should be called at the start of the main program.
+ * この関数は、アプリケーションが実行されるために必要なシステムクロックおよびその他の基本的な
+ * ハードウェア機能のセットアップを行います。メインプログラムの開始時に呼び出されるべきです。
  */
 void System_Init(void);
 

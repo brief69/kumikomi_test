@@ -1,30 +1,29 @@
 #ifndef IO_H
 #define IO_H
 
-#include "config.h" // Include configuration constants
+#include "config.h" // 設定定数を含むヘッダーファイルをインクルード
 
-// Function prototypes for I/O operations
+// I/O操作のための関数プロトタイプを宣言
 
 /**
- * @brief Configures the I/O pins.
+ * @brief I/Oピンを設定します。
  * 
- * This function sets up the I/O pins, such as LED and button pins,
- * as specified in the configuration. It should be called during
- * system initialization.
+ * この関数は、LEDピンやボタンピンなどのI/Oピンを設定します。
+ * システムの初期化時に呼び出されるべきです。
  */
 void IO_Init(void);
 
 /**
- * @brief Turns the LED on or off.
+ * @brief LEDをオンまたはオフにします。
  * 
- * @param state The desired state of the LED: 1 for on, 0 for off.
+ * @param state LEDの望ましい状態: 1 でオン、0 でオフ。
  */
 void LED_Set(int state);
 
 /**
- * @brief Reads the state of the button.
+ * @brief ボタンの状態を読み取ります。
  * 
- * @return int The current state of the button: 1 if pressed, 0 if not.
+ * @return int ボタンの現在の状態: 押されている場合は1、そうでない場合は0。
  */
 int Button_Read(void);
 

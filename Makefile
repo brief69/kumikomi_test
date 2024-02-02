@@ -1,47 +1,50 @@
-# Define the compiler
+# コンパイラを定義
 CC = gcc
 
-# Define any compile-time flags
+# コンパイル時のフラグを定義
 CFLAGS = -Wall -g -std=c99 -Os
 
-# Define any directories containing header files other than /usr/include
+# /usr/include以外のヘッダーファイルがあるディレクトリを定義
 INCLUDES = -I.
 
-# Define library paths in addition to /usr/lib
+# /usr/lib以外のライブラリパスを定義
 LFLAGS =
 
-# Define any libraries to link into executable
+# 実行可能ファイルにリンクするライブラリを定義
 LIBS =
 
-# Define the C source files
+# Cソースファイルを定義
 SRCS = main.c init.c io.c app_logic.c
 
-# Define the C header files
+# Cヘッダーファイルを定義
 HDRS = config.h init.h io.h app_logic.h
 
-# Define the C object files 
+# Cオブジェクトファイルを定義
 OBJS = $(SRCS:.c=.o)
 
-# Define the executable file 
+# 実行可能ファイルを定義
 MAIN = embedded_app
 
 .PHONY: depend clean
 
+# メインターゲットを定義し、コンパイルメッセージを表示
 all:    $(MAIN)
 	@echo  Simple embedded application has been compiled
 
+# 実行可能ファイルを生成するためのルールを定義
 $(MAIN): $(OBJS) 
 	$(CC) $(CFLAGS) $(INCLUDES) -o $(MAIN) $(OBJS) $(LFLAGS) $(LIBS)
 
-# This is a suffix replacement rule for building .o's from .c's
-# It uses automatic variables $<: the name of the prerequisite of
-# the rule(a .c file) and $@: the name of the target of the rule (a .o file)
+# .cファイルから.oファイルを生成するためのサフィックスルールを定義
+# 自動変数 $< はルールの前提条件（.cファイル）、$@ はルールのターゲット（.oファイル）を表す
 .c.o:
 	$(CC) $(CFLAGS) $(INCLUDES) -c $<  -o $@
 
+# クリーンアップターゲットを定義し、オブジェクトファイルと実行可能ファイルを削除
 clean:
 	$(RM) *.o *~ $(MAIN)
 
+# 依存関係を自動生成するためのターゲットを定義
 depend: $(SRCS)
 	makedepend $(INCLUDES) $^
 

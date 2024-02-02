@@ -1,17 +1,17 @@
 #ifndef CONFIG_H
 #define CONFIG_H
 
-// System clock frequency
+// システムクロックの周波数を定義します（16MHz）
 #define SYSTEM_CLOCK_HZ 16000000U // 16 MHz
 
-// UART configuration
+// UART通信のボーレートを定義します
 #define UART_BAUD_RATE 9600
 
-// I/O pin configurations
-#define LED_PIN 13
-#define BUTTON_PIN 2
+// I/Oピンの設定を定義します
+#define LED_PIN 13 // LEDを接続するピン番号
+#define BUTTON_PIN 2 // ボタンを接続するピン番号
 
-// Application-specific configurations
-// Define other configurations as needed for your application logic
+// アプリケーション固有の設定を定義します
+// 必要に応じて、アプリケーションのロジックに合わせた設定を追加してください
 
 #endif // CONFIG_H

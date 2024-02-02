@@ -1,37 +1,37 @@
-#include "init.h"
-#include "config.h"
+#include "init.h" // 初期化関数のプロトタイプを含むヘッダーファイル
+#include "config.h" // システム設定を含むヘッダーファイル
 
-// Include hardware-specific headers required for initialization
-// For example, if this is for an AVR microcontroller, you might include <avr/io.h>
+// ハードウェア固有のヘッダーファイルをインクルードするためのセクション
+// 例えば、AVRマイクロコントローラ用には <avr/io.h> をインクルードするかもしれません
 // #include <hardware_specific_header.h>
 
 void System_Init(void) {
-    // Initialize system clock
-    // The actual implementation will depend on the hardware.
-    // For example, for an AVR microcontroller, you might set the clock prescalers and source.
-    // CLKPR = (1 << CLKPCE); // Enable change to the clock prescaler
-    // CLKPR = 0; // Set prescaler to 0, running at full speed
+    // システムクロックを初期化するセクション
+    // 実際の実装はハードウェアに依存します。
+    // 例えば、AVRマイクロコントローラでは、クロックプリスケーラとソースを設定するかもしれません。
+    // CLKPR = (1 << CLKPCE); // クロックプリスケーラの変更を有効にする
+    // CLKPR = 0; // プリスケーラを0に設定し、フルスピードで動作させる
 
-    // Initialize UART
-    // The actual implementation will depend on the hardware.
-    // For example, for an AVR microcontroller, you might set the baud rate and frame format.
+    // UARTを初期化するセクション
+    // 実際の実装はハードウェアに依存します。
+    // 例えば、AVRマイクロコントローラでは、ボーレートとフレームフォーマットを設定するかもしれません。
     // UBRR0H = (uint8_t)(UBRR_VALUE >> 8);
     // UBRR0L = (uint8_t)(UBRR_VALUE);
-    // UCSR0B = (1 << RXEN0) | (1 << TXEN0); // Enable receiver and transmitter
-    // UCSR0C = (1 << UCSZ01) | (1 << UCSZ00); // Set frame: 8data, 1 stop bit
+    // UCSR0B = (1 << RXEN0) | (1 << TXEN0); // 受信機と送信機を有効にする
+    // UCSR0C = (1 << UCSZ01) | (1 << UCSZ00); // フレーム設定: 8データビット、1ストップビット
 
-    // Initialize I/O
-    // The actual implementation will depend on the hardware.
-    // For example, for an AVR microcontroller, you might set the data direction registers.
-    // DDRB |= (1 << LED_PIN); // Set LED pin as an output
-    // DDRD &= ~(1 << BUTTON_PIN); // Set button pin as an input
+    // I/Oを初期化するセクション
+    // 実際の実装はハードウェアに依存します。
+    // 例えば、AVRマイクロコントローラでは、データ方向レジスタを設定するかもしれません。
+    // DDRB |= (1 << LED_PIN); // LEDピンを出力として設定
+    // DDRD &= ~(1 << BUTTON_PIN); // ボタンピンを入力として設定
 
-    // Initialize any other peripherals or subsystems
-    // This could include ADC setup, timer setup, etc.
-    // The actual implementation will depend on the hardware and application requirements.
+    // 他の周辺機器やサブシステムを初期化するセクション
+    // これには、ADCのセットアップ、タイマーのセットアップなどが含まれるかもしれません。
+    // 実際の実装はハードウェアとアプリケーションの要件に依存します。
 
-    // Optionally, enable global interrupts if your system uses them
-    // sei(); // Enable global interrupts for AVR microcontrollers
+    // システムがそれらを使用する場合、オプションでグローバル割り込みを有効にする
+    // sei(); // AVRマイクロコントローラ用にグローバル割り込みを有効にする
 }
 
-// Note: The above code is a template and will not compile or work on actual hardware without the correct hardware-specific headers and modifications.
+// 注意: 上記のコードはテンプレートであり、正しいハードウェア固有のヘッダーと修正がなければ、実際のハードウェアでコンパイルまたは動作しません。

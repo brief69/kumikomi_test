@@ -1,31 +1,31 @@
-#include "app_logic.h"
-#include "io.h"
+#include "app_logic.h" // アプリケーションロジックのヘッダーファイルをインクルード
+#include "io.h" // 入出力関連のヘッダーファイルをインクルード
 
-// Global variables for application state
-static int ledState = 0; // Current state of the LED
+// アプリケーションの状態を保持するためのグローバル変数
+static int ledState = 0; // LEDの現在の状態（0: オフ、1: オン）
 
 /**
- * @brief Initializes the application logic.
+ * @brief アプリケーションロジックを初期化する。
  */
 void App_Logic_Init(void) {
-    // Initialize application state if needed
-    ledState = 0; // Start with LED off
-    // Add any other initialization code here
+    // 必要に応じてアプリケーションの状態を初期化
+    ledState = 0; // LEDをオフの状態で開始
+    // ここに他の初期化コードを追加
 }
 
 /**
- * @brief Main processing loop for the application logic.
+ * @brief アプリケーションロジックのメイン処理ループ。
  */
 void App_Logic_MainLoop(void) {
-    // Check the button state and toggle the LED accordingly
+    // ボタンの状態をチェックし、それに応じてLEDをトグルする
     if (Button_Read()) {
-        // If the button is pressed, toggle the LED state
+        // ボタンが押された場合、LEDの状態をトグルする
         ledState = !ledState;
         LED_Set(ledState);
     }
 
-    // Add any additional application logic here
-    // For example, handling other inputs or controlling other outputs
+    // ここに追加のアプリケーションロジックを追加
+    // 例えば、他の入力の処理や他の出力の制御など
 }
 
-// Add additional application-specific functions here
+// ここにアプリケーション固有の関数を追加

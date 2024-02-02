@@ -1,27 +1,27 @@
 #ifndef APP_LOGIC_H
 #define APP_LOGIC_H
 
-#include "config.h" // Include configuration constants
+#include "config.h" // 設定定数を含むヘッダーファイルをインクルード
 
-// Function prototypes for application logic
+// アプリケーションロジックに関する関数プロトタイプ
 
 /**
- * @brief Initializes the application logic.
+ * @brief アプリケーションロジックを初期化します。
  * 
- * This function sets up any application-specific logic or data structures.
- * It should be called after all system and I/O initialization is complete.
+ * この関数は、アプリケーション固有のロジックやデータ構造を設定します。
+ * システムおよびI/Oの初期化が完了した後に呼び出すべきです。
  */
 void App_Logic_Init(void);
 
 /**
- * @brief Main processing loop for the application logic.
+ * @brief アプリケーションロジックのメイン処理ループです。
  * 
- * This function contains the main logic of the application. It should be
- * called repeatedly in the main program loop. It will handle events such
- * as button presses and control the state of the LED accordingly.
+ * この関数は、アプリケーションの主要なロジックを含みます。メインプログラムのループで
+ * 繰り返し呼び出されるべきです。ボタンの押下などのイベントを処理し、LEDの状態を適切に
+ * 制御します。
  */
 void App_Logic_MainLoop(void);
 
-// Add additional function prototypes for application-specific tasks
+// アプリケーション固有のタスクに関する追加の関数プロトタイプをここに追加
 
 #endif // APP_LOGIC_H

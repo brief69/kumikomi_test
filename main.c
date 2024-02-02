@@ -1,30 +1,30 @@
-#include "config.h"
-#include "init.h"
-#include "io.h"
-#include "app_logic.h"
+#include "config.h" // システム設定を含むヘッダーファイルをインクルード
+#include "init.h" // システム初期化関数を含むヘッダーファイルをインクルード
+#include "io.h" // 入出力関連の関数を含むヘッダーファイルをインクルード
+#include "app_logic.h" // アプリケーションロジック関連の関数を含むヘッダーファイルをインクルード
 
-// Main program entry point
+// メインプログラムのエントリーポイント
 int main(void) {
-    // Initialize system
+    // システムを初期化
     System_Init();
 
-    // Configure I/O
+    // I/Oを設定
     IO_Init();
 
-    // Main loop
+    // メインループ
     while (1) {
-        // Read input from peripherals, e.g., buttons
+        // 周辺機器からの入力を読み取り、例えばボタン
         int button_state = IO_ReadButton(BUTTON_PIN);
 
-        // Process input and perform application logic
+        // 入力を処理し、アプリケーションロジックを実行
         AppLogic_ProcessInput(button_state);
 
-        // Update output devices, e.g., LEDs
+        // 出力デバイスを更新、例えばLED
         IO_UpdateLED(LED_PIN, AppLogic_GetLEDState());
 
-        // Implement any other application-specific logic
+        // その他のアプリケーション固有のロジックを実装
     }
 
-    // Should never reach this point
+    // このポイントには到達しないはず
     return 0;
 }
